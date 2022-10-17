@@ -35,6 +35,12 @@ public class BabyNamesTest {
         assertEquals(2,babyNames.getRank(2012, "Mason", "M"));
     }
 
+    @Test
+    public void getNameTest() {
+        assertEquals("Jacob",babyNames.getName(2012,4,"M"));
+        assertEquals("NO NAME",babyNames.getName(2012,6,"F"));
+    }
+
     @After
     public void restoreStreams() {
         System.setOut(originalOut);
