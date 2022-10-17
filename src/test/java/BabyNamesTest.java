@@ -37,8 +37,8 @@ public class BabyNamesTest {
 
     @Test
     public void getNameTest() {
-        assertEquals("Jacob",babyNames.getName(2012,4,"M"));
-        assertEquals("NO NAME",babyNames.getName(2012,6,"F"));
+        assertEquals("Jacob",babyNames.getName(2014,4,"M"));
+        assertEquals("NO NAME",babyNames.getName(2014,6,"F"));
     }
 
     @After

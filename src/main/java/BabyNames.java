@@ -1,6 +1,8 @@
 import edu.duke.FileResource;
 import org.apache.commons.csv.CSVRecord;
 
+import java.io.File;
+
 public class BabyNames {
     public void totalBirths(FileResource fr) {
         int totalBirths = 0;
@@ -34,4 +36,20 @@ public class BabyNames {
         }
         return nameRank;
     }
+
+    public String getName(int year, int rank, String gender) {
+        FileResource fr = new FileResource("testing/yob"+year+"short.csv");
+        String name = "NO NAME";
+        int genderRank = 0;
+        for (CSVRecord rec: fr.getCSVParser(false)) {
+            if (rec.get(1).equals(gender)) {
+                genderRank++;
+                if (genderRank == rank) {
+                    name = rec.get(0);
+                }
+            }
+        }
+        return name;
+    }
+
 }
