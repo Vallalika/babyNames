@@ -30,9 +30,9 @@ public class BabyNamesTest {
     }
 
     @Test
-    public void test getRanktest() {
-        assertEquals(-1,babyNames.getRank(2012, "Mason", "F");
-        assertEquals(2,babyNames.getRank(2012, "Mason", "M");
+    public void getRanktest() {
+        assertEquals(-1,babyNames.getRank(2012, "Mason", "F"));
+        assertEquals(2,babyNames.getRank(2012, "Mason", "M"));
     }
 
     @After

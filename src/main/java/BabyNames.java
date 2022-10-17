@@ -6,6 +6,7 @@ public class BabyNames {
         int totalBirths = 0;
         int totalNames = 0;
         for (CSVRecord rec: fr.getCSVParser(false)) {
+
             int numBorn = Integer.parseInt(rec.get(2));
             totalBirths += numBorn;
             totalNames ++;
@@ -17,5 +18,20 @@ public class BabyNames {
         System.out.println("Total names: " + totalNames);
         System.out.println("Total girls' names: " + totalGirlsNames);
         System.out.println("Total boys' names: " + totalBoysNames);
+    }
+
+    public int getRank(int year, String name, String gender) {
+        FileResource fr = new FileResource("testing/yob"+year+"short.csv");
+        int nameRank = -1;
+        int genderRank = 0;
+        for (CSVRecord rec: fr.getCSVParser(false)) {
+            if (rec.get(1).equals(gender)) {
+                genderRank++;
+                if (rec.get(0).equals(name)) {
+                    nameRank = genderRank;
+                }
+            }
+        }
+        return nameRank;
     }
 }
