@@ -1,5 +1,4 @@
 import edu.duke.FileResource;
-import org.apache.commons.csv.CSVRecord;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,11 +26,12 @@ public class BabyNamesTest {
     public void totalBirthsTest() {
         babyNames.totalBirths(fr);
         assertEquals("Total births: 47" + "\n" +
-                "Total girls: 18" + "\n" + "Total boys: 29", outContent.toString().trim());
+                "Total names: 10" + "\n" + "Total girls' names: 5" + "\n" + "Total boys' names: 5", outContent.toString().trim());
     }
 
     @After
     public void restoreStreams() {
-        System.setOut(originalOut));
+        System.setOut(originalOut);
     }
+
 }
