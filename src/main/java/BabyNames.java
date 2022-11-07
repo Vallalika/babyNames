@@ -1,3 +1,4 @@
+import edu.duke.DirectoryResource;
 import edu.duke.FileResource;
 import org.apache.commons.csv.CSVRecord;
 
@@ -57,4 +58,21 @@ public class BabyNames {
         return newName;
     }
 
+    public int yearOfHighestRank(String name, String gender) {
+        DirectoryResource dr = new DirectoryResource();
+        int currentRank = 0;
+        int highestRank = 5;
+        int yearOfHighestRank = -1;
+        for (File f: dr.selectedFiles()) {
+            String fileName = f.getName();
+            int currentYear = Integer.parseInt(fileName.substring(3,7));
+            FileResource fr = new FileResource("testing/"+fileName);
+            currentRank = getRank(currentYear,name, gender);
+            if (currentRank > 0 && currentRank < highestRank ) {
+                highestRank = currentRank;
+                yearOfHighestRank = currentYear;
+            }
+        }
+        return yearOfHighestRank;
+    }
 }

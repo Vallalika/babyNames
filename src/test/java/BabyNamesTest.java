@@ -55,19 +55,19 @@ public class BabyNamesTest {
 
     @Test
     public void yearOfHighestRankFemaleTest() {
-        String highestRankYear = babyNames.yearOfHighestRank("Sophia", "F");
+        int highestRankYear = babyNames.yearOfHighestRank("Sophia", "F");
         assertEquals(2012, highestRankYear);
     }
 
     @Test
     public void yearOfHighestRankMaleTest() {
-        String highestRankYear = babyNames.yearOfHighestRank("Noah", "M");
-        assertEquals(2014, highestRankYear);
+        int highestRankYear = babyNames.yearOfHighestRank("Noah", "M");
+        assertEquals(2013, highestRankYear);
     }
 
     @Test
     public void yearOfHighestRankNoNameTest() {
-        String highestRankYear = babyNames.yearOfHighestRank("Vallalika", "F");
+        int highestRankYear = babyNames.yearOfHighestRank("Vallalika", "F");
         assertEquals(-1, highestRankYear);
     }
 
