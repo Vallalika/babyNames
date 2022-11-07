@@ -41,6 +41,36 @@ public class BabyNamesTest {
         assertEquals("NO NAME",babyNames.getName(2014,6,"F"));
     }
 
+    @Test
+    public void nameInOtherYearFemaleTest() {
+        String name = babyNames.whatIsNameInYear("Sophia", 2012, 2014, "F");
+        assertEquals("Emma", name);
+    }
+
+    @Test
+    public void nameInOtherYearMaleTest() {
+        String name = babyNames.whatIsNameInYear("Jacob", 2014, 2012, "M");
+        assertEquals("Noah", name);
+    }
+
+    @Test
+    public void yearOfHighestRankFemaleTest() {
+        String highestRankYear = babyNames.yearOfHighestRank("Sophia", "F");
+        assertEquals(2012, highestRankYear);
+    }
+
+    @Test
+    public void yearOfHighestRankMaleTest() {
+        String highestRankYear = babyNames.yearOfHighestRank("Noah", "M");
+        assertEquals(2014, highestRankYear);
+    }
+
+    @Test
+    public void yearOfHighestRankNoNameTest() {
+        String highestRankYear = babyNames.yearOfHighestRank("Vallalika", "F");
+        assertEquals(-1, highestRankYear);
+    }
+
     @After
     public void restoreStreams() {
         System.setOut(originalOut);

@@ -8,7 +8,6 @@ public class BabyNames {
         int totalBirths = 0;
         int totalNames = 0;
         for (CSVRecord rec: fr.getCSVParser(false)) {
-
             int numBorn = Integer.parseInt(rec.get(2));
             totalBirths += numBorn;
             totalNames ++;
@@ -50,6 +49,12 @@ public class BabyNames {
             }
         }
         return name;
+    }
+
+    public String whatIsNameInYear(String name, int originalYear, int targetYear, String gender) {
+        int nameRank = getRank(originalYear,name,gender);
+        String newName = getName(targetYear, nameRank, gender);
+        return newName;
     }
 
 }
